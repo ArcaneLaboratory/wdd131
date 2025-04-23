@@ -1,0 +1,36 @@
+*{
+    margin: 0 auto;
+    font-size: 20px;
+}
+body{
+    width: 900px;
+}
+* :not(em){
+    padding: 2%;
+}
+#content{
+    margin: 2%;
+    text-align: center;
+    border: 1px solid gray;
+    padding: 10% 10% 5% 10%;
+}
+h1{
+    font-weight: normal;
+    letter-spacing: 5px;
+    font-size: 2em;
+}
+h2{
+    border-bottom: 1px solid lightgray;
+    color: #006EB6;
+    font-weight: normal;
+    letter-spacing: 4px;
+}    
+img{
+    width: 25%;
+}
+p, li{
+    text-align: left;
+}
+ol{
+    padding-left: 8%;
+}
