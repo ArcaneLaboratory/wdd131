@@ -35,3 +35,17 @@ p, li{
 ol{
     padding-left: 8%;
 }
+select, ::picker(select){
+    appearance: base-select;
+}
+.dark{
+    background-color: #333;
+    color: #FFF;
+}
+.dark h2{
+    color: #4F9ACF;
+}
+.dark select, .dark ::picker(select){
+    background-color: #333;
+    color: #FFF;
+}
