@@ -24,17 +24,19 @@ nav{
 }
 #nav-grid{
     display: grid;
-    grid-template-columns: 10fr 1fr 1fr 1fr 1fr;
-    text-align: end;
+    grid-template-columns: repeat(4, 80px);
+    justify-content: end;
+    justify-items: end;
     border: 1px solid var(--borders);
     padding: 1% 0;
     font-size: 1.2em;
+    list-style: none;
 }
 #main-grid{
     display: grid;
     grid-template-columns: 3fr 1fr;
 }
-#content{
+article{
     display: grid;
     grid-template-columns: 1fr 2fr;
 }
@@ -49,6 +51,8 @@ img{
     width: 400px;
     height: 600px;
     padding: 3% 0;
+    display: block;
+    margin: 0 auto;
 }
 p{
     padding: 1% 0;
@@ -64,4 +68,27 @@ h3{
 }
 .skiptocontent a:focus{
     top: 0px
+}
+#filters{
+    border: 1px solid var(--borders);
+    width: 90%;
+}
+.read-more{
+    font-weight: bold;
+}
+.review-info{
+    text-align: right;
+    margin: 2%;
+    padding: 2%;
+    padding-right: 5%;
+    border-right: 1px solid var(--borders);
+}
+.review-date{
+    font-size: 1.2em;
+}
+.review-content{
+    padding-left: 5%;
+}
+.review-content > h2{
+    margin-top: 1%;
 }
