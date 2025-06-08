@@ -1,0 +1,79 @@
+#card{
+    width: 450px;
+    height: 300px;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr; 
+    grid-template-rows: 1fr 5fr 1fr;
+    font-family: 'Courier New', Courier, monospace; 
+}
+#card-front{
+    grid-row: 1/3;
+    grid-column: 1/3;
+    z-index: 1;
+}
+#total{
+    grid-row: 2/3;
+    grid-column: 2/7;
+}
+#card-image{
+    grid-row: 2/3;
+    grid-column: 8/9;
+}
+#cnum{
+    grid-row: 5/6;
+    grid-column: 2/10;
+}
+#card-number{
+    grid-row: 6/7;
+    grid-column: 2/10;
+}
+#cname{
+    grid-row: 8/9;
+    grid-column: 2/6;
+}
+#cnamelabel{
+    grid-row: 7/8;
+    grid-column: 2/6;
+}
+#expmonth{
+    grid-row: 8/9;
+    grid-column: 7/8;
+}
+#expiration{
+    grid-row: 7/8;
+    grid-column: 7/10;
+}
+#expyear{
+    grid-row: 8/9;
+    grid-column: 9/10;
+}
+#card-back{
+    grid-row: 2/4;
+    grid-column: 2/4;
+    background-color: #ccc;
+    z-index: 0;
+}
+#magstripe{
+    grid-row: 2/4;
+    grid-column: 1/11;
+    background-color: #555;
+}
+#cvvlabel{
+    grid-row: 7/8;
+    grid-column: 9/10;
+}
+#cvv{
+    grid-row: 8/9;
+    grid-column: 9/10;
+}
+.card-face{
+    border-radius: 3%;
+    box-shadow: 2px 2px 5px #aaa;
+    background-color: #ccc;
+    display: grid;
+    grid-template-columns: repeat(10, 36px);
+    grid-template-rows: repeat(9, 28px);
+}
+label{
+    margin-top: 8px;
+}
