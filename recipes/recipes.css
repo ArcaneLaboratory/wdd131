@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Chewy&display=swap");
+:root {
+  --primary-color: #1b98e0;
+  --secondary-color: #59c3c3;
+  --text-dark: #333;
+  --text-light: #ebebeb;
+  --primary-font: Arial, Helvetica, sans-serif;
+  --secondary-font: "Chewy", Helvetica, sans-serif;
+}
+
+* {
+  font-family: var(--primary-font);
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.header h1 {
+  margin-top: 110px;
+}
+
+.search-bar {
+  display: block;
+}
+
+#search {
+  width: 85%;
+  margin-left: 5%;
+  margin-right: 10%;
+  height: 35px;
+  padding: 0 5px;
+}
+
+#submit img {
+  box-sizing: border-box;
+  height: 22px;
+  width: 40px;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+
+#submit {
+  height: 39px;
+  position: absolute;
+  left: 85%;
+  top: 181px;
+}
+
+h1 {
+  font-family: var(--secondary-font);
+  font-weight: normal;
+}
+
+#title-image {
+  height: 150px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.social a img {
+  width: 48px;
+  margin: 0 10px 10px 10px;
+}
+
+.recipes {
+  display: flex;
+}
+
+.recipe {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+    width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.recipe-description {
+  display: none;
+}
+
+.recipe-tags {
+  list-style: none;
+  text-transform: lowercase;
+  padding: 0;
+  display: flex;
+}
+
+.recipe-tags li {
+  padding: 10px;
+  border: 1px solid black;
+  margin: 0 5px 0 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+@media (min-width: 550px) {
+  html {
+    max-width: 95%;
+  }
+  footer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .recipes {
+    display: flex;
+            flex-direction: row;
+  }
+  .recipe img{
+    display: inline;
+    width: 400px;
+    float: left;
+    margin: 0 50px 0 0;
+  }
+  .recipe figcaption{
+    display: inline;
+    margin: 50px;
+  }
+  .recipe-description {
+    display: block;
+  }
+  footer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+footer>a{
+    margin-left: 50px;
+}
+.social a img{
+    margin: 5px;
+}
+}
