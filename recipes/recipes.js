@@ -291,7 +291,7 @@ function getRandomListEntry(list) {
 }
 
 function tagsTemplate(tags) {
-	let html = `<ul class="recipe__tags">`
+	let html = `<ul class="recipe-tags">`
 	for(i = 0; i < tags.length; i++){
 		html += `<li>${tags[i]}</li>`
 	}
@@ -321,10 +321,10 @@ function recipeTemplate(recipe) {
 	<figcaption>
 		${tagsTemplate(recipe.tags)}
 		<h2><a href="#">${recipe.name}</a></h2>
-		<p class="recipe__ratings">
+		<p class="recipe-ratings">
 			${ratingTemplate(recipe.rating)}
 		</p>
-		<p class="recipe__description">
+		<p class="recipe-description">
 			${recipe.description}
 		</p>
 </figcaption>
