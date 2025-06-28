@@ -279,3 +279,103 @@ const recipes = [
 		rating: 4
 	}
 ]
+
+function random(num) {
+	return Math.floor(Math.random() * num);
+}
+
+function getRandomListEntry(list) {
+	const listLength = list.length;
+	const randomNum = random(listLength);
+	return list[randomNum];
+}
+
+function tagsTemplate(tags) {
+	let html = `<ul class="recipe__tags">`
+	for(i = 0; i < tags.length; i++){
+		html += `<li>${tags[i]}</li>`
+	}
+	html += `</ul>`
+	return html;
+}
+
+function ratingTemplate(rating) {
+	// begin building an html string using the ratings HTML written earlier as a model.
+	let html = `<span
+	class="rating"
+	role="img"
+	aria-label="Rating: ${rating} out of 5 stars"
+>`
+// our ratings are always out of 5, so create a for loop from 1 to 5
+	for(i = 1; i <= rating; i++){html+= `<span aria-hidden="true" class="icon-star">⭐</span>`}
+	for(i = rating; i < 5; i++){html+= `<span aria-hidden="true" class="icon-star-empty">☆</span>`}
+	// after the loop, add the closing tag to our string
+	html += `</span>`
+	// return the html string
+	return html
+}
+
+function recipeTemplate(recipe) {
+	return `<figure class="recipe">
+	<img src="${recipe.image}" alt="image of ${recipe.name}" />
+	<figcaption>
+		${tagsTemplate(recipe.tags)}
+		<h2><a href="#">${recipe.name}</a></h2>
+		<p class="recipe__ratings">
+			${ratingTemplate(recipe.rating)}
+		</p>
+		<p class="recipe__description">
+			${recipe.description}
+		</p>
+</figcaption>
+</figure>`;
+}
+
+// const recipe = getRandomListEntry(recipes);
+// console.log(recipeTemplate(recipe));
+
+function renderRecipes(recipeList) {
+	// get the element we will output the recipes into
+	const recipeBox = document.querySelector(".recipes")
+	// use the recipeTemplate function to transform our recipe objects into recipe HTML strings
+	const elements = recipeList.reduce((a, c) => a + recipeTemplate(c), "")
+	// console.log(elements)
+	// Set the HTML strings as the innerHTML of our output element.
+	recipeBox.innerHTML = elements
+}
+
+
+
+function searchList(list, query){
+    function searchCallback(object){
+        if (object.name.toLowerCase().includes(query.toLowerCase())){
+            return true;
+        }
+        if (object.description.toLowerCase().includes(query.toLowerCase())){
+            return true;
+        }
+        const found = object.tags.find((e) => e.toLowerCase().includes(query.toLowerCase())) || object.recipeIngredient	.find((e) => e.toLowerCase().includes(query.toLowerCase()))
+        return found;
+    }
+    const filtered = list.filter(searchCallback);
+
+    const sorted = filtered.sort((a, b) => a.name > b.name);
+    return sorted;
+}
+
+function searchHandler(e){
+	e.preventDefault()
+	renderRecipes(searchList(recipes, document.querySelector("#search").value.toLowerCase()))
+	console.log(searchList(recipes, document.querySelector("#search").value.toLowerCase()))
+	return false;
+}
+
+document.querySelector("#submit").addEventListener("click", searchHandler)
+
+function init() {
+  // get a random recipe
+  const recipe = getRandomListEntry(recipes)
+  // render the recipe with renderRecipes.
+  renderRecipes([recipe]);
+}
+init();

@@ -8,6 +8,10 @@
   --secondary-font: "Chewy", Helvetica, sans-serif;
 }
 
+html{
+  max-width: 95%;
+}
+
 * {
   font-family: var(--primary-font);
 }
@@ -77,6 +81,7 @@ img {
 
 .recipes {
   display: flex;
+  flex-direction: column;
 }
 
 .recipe {
@@ -110,19 +115,13 @@ a {
   color: var(--primary-color);
 }
 
-@media (min-width: 550px) {
-  html {
-    max-width: 95%;
-  }
+@media (min-width: 480px) {
   footer {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
   }
-  .recipes {
-    display: flex;
-    flex-direction: row;
-  }
+
   .recipe img {
     display: inline;
     width: 400px;
@@ -148,5 +147,12 @@ a {
     width: 48px;
     height: 48px;
     margin: 5px;
+  }
+}
+
+@media (min-width: 900px){
+    .recipes {
+    display: flex;
+    flex-direction: row;
   }
 }
