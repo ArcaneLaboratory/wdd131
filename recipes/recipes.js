@@ -371,11 +371,25 @@ function searchHandler(e){
 }
 
 document.querySelector("#submit").addEventListener("click", searchHandler)
+document.querySelector("#search").addEventListener("submit", searchHandler)
 
-function init() {
+function init(search) {
+	if(typeof search == typeof "hello"){
+			renderRecipes(searchList(recipes, document.querySelector("#search").value.toLowerCase()))
+	}else{
   // get a random recipe
   const recipe = getRandomListEntry(recipes)
   // render the recipe with renderRecipes.
   renderRecipes([recipe]);
+	}
 }
-init();
+
+// Get the query string from the current URL
+const queryString = window.location.search;
+
+// Create a URLSearchParams object
+const urlParams = new URLSearchParams(queryString);
+
+// Get the value of a specific parameter
+const searchValue = urlParams.get('search');
+init(searchValue);
